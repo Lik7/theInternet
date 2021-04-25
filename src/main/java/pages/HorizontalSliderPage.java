@@ -1,6 +1,7 @@
 package pages;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Action;
@@ -22,14 +23,20 @@ public class HorizontalSliderPage {
 
     public void moveSlider() {
         WebElement moveSlider = driver.findElement(slider);
-        Actions move = new Actions(driver);
+        //первый способ через Action
+       /* Actions move = new Actions(driver);
         move.moveToElement(moveSlider);
         Action action = move.dragAndDropBy(moveSlider, 30, 0).build();
-        action.perform();
+        action.perform();*/
+
+        // второй способ через Keys
+        for (int i =0; i<8; i++){
+            moveSlider.sendKeys(Keys.ARROW_RIGHT);
+        }
     }
 
     public String getValueRange() {
         return driver.findElement(valueRange).getText();
     }
-    
+
 }
