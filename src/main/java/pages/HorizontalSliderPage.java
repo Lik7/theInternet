@@ -17,26 +17,26 @@ public class HorizontalSliderPage {
         this.driver = driver;
     }
 
-   /* public void clickSlider() {
-        driver.findElement(slider).click();
+    /*public void clickSlider() {
+        for (int i =0; i<8; i++){
+        driver.findElement(slider).sendKeys(Keys.ARROW_RIGHT);}
     }*/
 
     public void moveSlider() {
         WebElement moveSlider = driver.findElement(slider);
         //первый способ через Action
-       /* Actions move = new Actions(driver);
+       Actions move = new Actions(driver);
         move.moveToElement(moveSlider);
         Action action = move.dragAndDropBy(moveSlider, 30, 0).build();
-        action.perform();*/
+        //action.perform();
 
         // второй способ через Keys
-        for (int i =0; i<8; i++){
+        /*for (int i =0; i<8; i++){
             moveSlider.sendKeys(Keys.ARROW_RIGHT);
-        }
+        }*/
     }
 
     public String getValueRange() {
         return driver.findElement(valueRange).getText();
     }
-
 }

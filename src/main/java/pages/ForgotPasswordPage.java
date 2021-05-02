@@ -20,14 +20,14 @@ public class ForgotPasswordPage {
     public String getErrorText() {
         return driver.findElement(By.xpath("//*[text()='Internal Server Error']")).getText();
     }
-
+// и создаем объект новой страницы
     public ForgotPasswordResultPage clickRetrievePasswordButton() {
         driver.findElement(retrievePasswordButton).click();
         return new ForgotPasswordResultPage(driver);
     }
-}
 
-   /* public class ForgotPasswordResultPage {
+
+   public class ForgotPasswordResultPage {
 
         WebDriver driver;
         //private By errorText = By.xpath("//*[text()='Internal Server Error']");
@@ -37,8 +37,8 @@ public class ForgotPasswordPage {
         }
 
         //возвращает текст Internal Server Error
-        public String getErrorText() {
+        public String QgetErrorText() {
             return driver.findElement(By.xpath("//*[text()='Internal Server Error']")).getText();
         }
     }
-}*/
+}

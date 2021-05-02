@@ -11,7 +11,8 @@ public class ForgotPasswordTest extends BaseTest {
     public void testForgotPassword(){
         ForgotPasswordPage forgotPassword = homePage.clickForgotPassword();
         forgotPassword.setEmail("qwe@asd.zx");
-        forgotPassword.clickRetrievePasswordButton();
+        ForgotPasswordPage.ForgotPasswordResultPage forgotPasswordResultPage = forgotPassword.clickRetrievePasswordButton();// и создаем объект новой страницы
+        forgotPasswordResultPage.QgetErrorText();
         Assert.assertEquals(forgotPassword.getErrorText(), "Internal Server Error", "Нет перехода на страницу результата восстановления пароля");
     }
 }

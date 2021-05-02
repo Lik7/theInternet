@@ -49,4 +49,39 @@ public class HomePage {
         return new HorizontalSliderPage(driver);
     }
 
+    public AlertsPage clickJavaScriptAlerts() {
+        clickLink("JavaScript Alerts").click();
+        return new AlertsPage(driver);
+    }
+    public FileUploaderPage clickFileUpload() {
+        clickLink("File Upload").click();
+        return new FileUploaderPage(driver);
+    }
+    public EntryAdPage clickEntryAd() {
+        clickLink("Entry Ad").click();
+        return new EntryAdPage(driver);//по сути возвр. объект другой (новой) страницы
+    }
+    public WysiwygEditorPage clickFrames() {
+        clickLink("Frames").click();
+        clickLink("iFrame").click();
+        return new WysiwygEditorPage(driver);
+    }
+    public NestedFramesPage clickIFrames() {
+        clickLink("Frames").click();
+        clickLink("Nested Frames").click();
+        return new NestedFramesPage(driver);
+    }
+    public DynamicLoadingPage clickDynamicLoading() {
+        clickLink("Dynamic Loading").click();
+        return new DynamicLoadingPage(driver);
+    }
+    public LargeAndDeepDomPage clickLargeAndDeep() {
+        clickLink("Large & Deep DOM").click();
+        return new LargeAndDeepDomPage(driver);
+    }
+    public InfiniteScrollPage clickInfiniteScroll() {
+        clickLink("Infinite Scroll").click();
+        return new InfiniteScrollPage(driver);
+    }
+
 }
