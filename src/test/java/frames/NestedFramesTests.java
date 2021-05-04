@@ -17,6 +17,6 @@ public class NestedFramesTests extends BaseTest {
     public void testBottomFrame(){
         NestedFramesPage nestedFramesPage = homePage.clickIFrames();
         nestedFramesPage.switchToBottomArea();
-        Assert.assertEquals(nestedFramesPage.getFrameBottomText(), "BOTTOM", "Wrong middle frame");
+        Assert.assertEquals(nestedFramesPage.getFrameBottomText(), "BOTTOM", "Wrong bottom frame");
     }
 }
