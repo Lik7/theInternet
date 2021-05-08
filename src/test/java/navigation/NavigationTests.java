@@ -9,7 +9,8 @@ public class NavigationTests extends BaseTest {
     @Test
     public void testsNavigation(){
         DynamicLoadingPage dynamicLoadingPage = homePage.clickDynamicLoading();
-        DynamicLoadingPage.Example1Page example1Page = dynamicLoadingPage.clickExample1();
+        dynamicLoadingPage.clickExample1();
+        //DynamicLoadingPage.Example1Page example1Page = dynamicLoadingPage.clickExample1();
         getWindowManager().goBack();
         getWindowManager().refresh();
         getWindowManager().goForward();
@@ -20,5 +21,11 @@ public class NavigationTests extends BaseTest {
     public void testSwitchToTab(){
         homePage.clickMultipleWindows().clickHereLink();
         getWindowManager().switchToTab("New Window");
+    }
+
+    @Test
+    public void testSwitchToTabW7() {
+        DynamicLoadingPage dynamicLoadingPage = homePage.clickDynamicLoading();
+        dynamicLoadingPage.clickExample2();
     }
 }

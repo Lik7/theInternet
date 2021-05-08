@@ -35,7 +35,7 @@ public class EventReporter implements WebDriverEventListener {
 
     @Override
     public void afterNavigateTo(String s, WebDriver webDriver) {
-
+        System.out.println("Navigate to: " + webDriver.getCurrentUrl());
     }
 
     @Override
@@ -65,16 +65,16 @@ public class EventReporter implements WebDriverEventListener {
 
     @Override
     public void afterNavigateRefresh(WebDriver webDriver) {
-
     }
 
     @Override
     public void beforeFindBy(By by, WebElement webElement, WebDriver webDriver) {
-
+        System.out.println("Before Find By" + by);
     }
 
     @Override
     public void afterFindBy(By by, WebElement webElement, WebDriver webDriver) {
+        System.out.println("After Find By" + by);
 
     }
 

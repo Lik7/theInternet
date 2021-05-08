@@ -1,7 +1,7 @@
 package login;
 
 import Base.BaseTest;
-import org.testng.Assert;
+import static org.testng.Assert.*;
 import org.testng.annotations.Test;
 import pages.LoginPage;
 import pages.SecureAreaPage;
@@ -16,6 +16,6 @@ public class LoginTests extends BaseTest {
         loginPage.setPasswordWord("SuperSecretPassword!");
         SecureAreaPage secureAreaPage = loginPage.clickLoginButton();
 
-        Assert.assertEquals(secureAreaPage.getMessege(), "You logged into a secure area!\n×", "Test is fail");
+        assertEquals(secureAreaPage.getMessege(), "You logged into a secure area!\n×", "Test is fail");
     }
 }

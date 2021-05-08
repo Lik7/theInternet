@@ -1,7 +1,11 @@
 package pages;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Action;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -9,6 +13,8 @@ public class DynamicLoadingPage {
     private WebDriver driver;
 
     private By example1Link = By.linkText("Example 1: Element on page that is hidden");
+    private By example2Link = By.linkText("Example 2: Element rendered after the fact");
+    //private WebElement example2Link = driver.findElement(By.linkText("Example 2: Element rendered after the fact"));
 
 
     public DynamicLoadingPage(WebDriver driver) {
@@ -18,6 +24,11 @@ public class DynamicLoadingPage {
     public Example1Page clickExample1() {
         driver.findElement(example1Link).click();
         return new Example1Page(driver);
+    }
+
+    public Example2Page clickExample2() {
+        driver.findElement(example2Link).click();
+        return new Example2Page(driver);
     }
 
 
@@ -43,4 +54,13 @@ public class DynamicLoadingPage {
         }
     }
 
+    public class Example2Page {
+        WebDriver driver;
+
+        By startButton = By.cssSelector("div > #start");
+
+        public Example2Page(WebDriver driver) {
+            this.driver = driver;
+        }
+    }
 }
