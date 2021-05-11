@@ -46,4 +46,10 @@ public class WindowManager {
             }
         }
     }
+    // ctrl click tests
+    public void switchToLastTab() {
+        Set<String> windows = driver.getWindowHandles();
+        int windowsQuantity = windows.size();
+        driver.switchTo().window((String) windows.toArray()[windowsQuantity - 1]);
+    }
 }

@@ -1,6 +1,7 @@
 package navigation;
 
 import Base.BaseTest;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.DynamicLoadingPage;
 
@@ -20,5 +21,14 @@ public class NavigationTests extends BaseTest {
     public void testSwitchToTab(){
         homePage.clickMultipleWindows().clickHereLink();
         getWindowManager().switchToTab("New Window");
+    }
+
+    @Test
+    public void testCtrlClick() {
+        DynamicLoadingPage dynamicLoadingPage = homePage.clickDynamicLoading();
+        dynamicLoadingPage.ctrllickExample2Link();
+
+        getWindowManager().switchToLastTab();
+        Assert.assertTrue(dynamicLoadingPage.checkStartButtonPresence());
     }
 }
