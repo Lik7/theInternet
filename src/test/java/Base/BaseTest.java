@@ -1,10 +1,12 @@
 package Base;
 
 import com.google.common.io.Files;
+import org.openqa.selenium.Cookie;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.events.EventFiringWebDriver;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterClass;
@@ -30,11 +32,12 @@ public class BaseTest {
     public void setUp() {
         System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver.exe");
         //driver = new ChromeDriver(); //запускаем драйвер Хрома
-        driver = new EventFiringWebDriver(new ChromeDriver());//запускаем драйвер Хрома
+        driver = new EventFiringWebDriver(new ChromeDriver(getChromeOptions()));//запускаем драйвер Хрома
         driver.register(new EventReporter());
 
         driver.manage().window().maximize();
         goHome();
+        setCookie();
         homePage = new HomePage(driver);
     }
 
@@ -69,6 +72,22 @@ public class BaseTest {
         if (result.getStatus() == ITestResult.FAILURE) {
             takeScreenshot(result);
         }
+    }
+
+    private ChromeOptions getChromeOptions(){
+        ChromeOptions chromeOptions = new ChromeOptions();
+        chromeOptions.setExperimentalOption("excludeSwitches", new String[]{"enable-automation"});
+        //chromeOptions.setHeadless(true);//запускает тест без отобр. браузера
+        return chromeOptions;
+    }
+
+    private void setCookie(){
+        Cookie cookie = new Cookie
+                .Builder("Stormnet", "1234")
+                .domain("the-internet.herokuapp.com")
+                .build();
+        driver.manage().addCookie(cookie);
+        driver.manage().deleteCookieNamed("optimizelyBuckets");
     }
 }
 //driver.get(link);

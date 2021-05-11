@@ -10,7 +10,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="TAU_THE_INTERNET_ALLURE" target="1.8" />
+      <module name="theInternet" target="8" />
     </bytecodeTargetLevel>
   </component>
 </project>
